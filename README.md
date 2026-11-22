@@ -1,6 +1,6 @@
-[![make.fun bounty](https://img.shields.io/badge/make.fun-bounty-purple?style=for-the-badge)](https://make.fun)
-[![bounty status](https://img.shields.io/badge/status-active-green?style=for-the-badge)](https://make.fun)
-[![bounty reward](https://img.shields.io/badge/reward-$500-gold?style=for-the-badge)](https://make.fun)
+[![make.fun · gta6-clipper-01](https://make.fun/badge/gta6-clipper-01.svg)](https://make.fun/bounty/gta6-clipper-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-clipper-01)
+[![rank](https://make.fun/badge/gta6-clipper-01/Arput20/gta6-clipper/rank.svg)](https://make.fun/bounty/gta6-clipper-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-clipper-01)
+[![reward](https://make.fun/badge/gta6-clipper-01/Arput20/gta6-clipper/reward.svg)](https://make.fun/bounty/gta6-clipper-01/reward?utm_source=github&utm_medium=readme&utm_campaign=gta6-clipper-01)
 
 # gta6-clipper-01
 
