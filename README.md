@@ -34,9 +34,11 @@ node clip.mjs /tmp/testsrc.mp4 --start 5 --dur 25 --out /tmp/output_test.mp4 --t
 2. **Crop & Scale:** Crops central horizontal band to 9:16 aspect ratio and scales to 1080x1920.
 3. **Color Boost:** Enhances saturation (`eq=saturation=1.2`) for visual pop.
 4. **Hook Header:** Draws bold uppercase white text with black outline at the top.
-5. **Pitch Block Overlay:** From 60% duration to the end, overlays a semi-transparent dark container featuring:
+5. **Enlarged Pitch Block Overlay:** From 60% duration to the end, overlays an expanded semi-transparent dark container featuring:
    - `MAKE CLIPS LIKE THIS WITH AI`
    - `AND EARN MONEY ON`
    - `MAKE.FUN` (gold, bold)
-   - `make.fun/bounty/gta6-clipper-01`
-6. **Encoding:** Renders optimized H.264 video (`yuv420p`, 30 fps, `faststart`).
+   - Gold separator accent line
+   - `make.fun/bounty/gta6-clipper-01` (gold, bold)
+6. **Ending Fade:** Soft fade-to-black over the final 0.8 seconds of the clip.
+7. **Encoding:** Renders optimized H.264 video (`yuv420p`, 30 fps, `faststart`).

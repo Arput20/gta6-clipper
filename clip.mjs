@@ -49,6 +49,7 @@ async function main() {
   }
 
   const pitchStart = dur * 0.6;
+  const fadeStart = Math.max(0, dur - 0.8);
   const escapedTitle = escapeDrawtext(title.toUpperCase());
 
   // Filtergraph construction:
@@ -57,16 +58,19 @@ async function main() {
   // 3. Eq: saturation=1.2
   // 4. Hook text at top: drawtext
   // 5. Pitch block from 60% of clip: drawbox + 4 drawtext lines
+  // 6. Fade to black over last 0.8s
   const vf = [
     'crop=ih*9/16:ih:(iw-ih*9/16)/2:0',
     'scale=1080:1920',
     'eq=saturation=1.2',
     `drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='${escapedTitle}':fontcolor=white:fontsize=56:borderw=4:bordercolor=black:x=(w-text_w)/2:y=120`,
-    `drawbox=enable='gte(t,${pitchStart})':x=90:y=1200:w=900:h=500:color=black@0.75:t=fill`,
-    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='MAKE CLIPS LIKE THIS WITH AI':fontcolor=white:fontsize=32:x=(w-text_w)/2:y=1240`,
-    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='AND EARN MONEY ON':fontcolor=white:fontsize=32:x=(w-text_w)/2:y=1300`,
-    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='MAKE.FUN':fontcolor=gold:fontsize=64:x=(w-text_w)/2:y=1370`,
-    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='make.fun/bounty/gta6-clipper-01':fontcolor=white:fontsize=28:x=(w-text_w)/2:y=1480`
+    `drawbox=enable='gte(t,${pitchStart})':x=60:y=1130:w=960:h=640:color=black@0.8:t=fill`,
+    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='MAKE CLIPS LIKE THIS WITH AI':fontcolor=white:fontsize=36:x=(w-text_w)/2:y=1170`,
+    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='AND EARN MONEY ON':fontcolor=white:fontsize=36:x=(w-text_w)/2:y=1230`,
+    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='MAKE.FUN':fontcolor=gold:fontsize=76:x=(w-text_w)/2:y=1300`,
+    `drawbox=enable='gte(t,${pitchStart})':x=160:y=1420:w=760:h=4:color=gold@0.9:t=fill`,
+    `drawtext=enable='gte(t,${pitchStart})':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='make.fun/bounty/gta6-clipper-01':fontcolor=gold:fontsize=32:x=(w-text_w)/2:y=1460`,
+    `fade=t=out:st=${fadeStart}:d=0.8`
   ].join(',');
 
   const ffmpegArgs = [
